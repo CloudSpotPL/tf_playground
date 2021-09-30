@@ -26,12 +26,13 @@ jobs:
       uses: hashicorp/setup-terraform@v1
       with:
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }} 
+        tf_actions_working_dir: "./terraform"
     - name: 'Terraform Format'
       uses: hashicorp/terraform-github-actions@master
       with:
         tf_actions_version: 0.14.8
         tf_actions_subcommand: 'fmt'
-      
+        tf_actions_working_dir: "./terraform"      
     - name: 'Terraform Init'
       uses: hashicorp/terraform-github-actions@master
       with:
